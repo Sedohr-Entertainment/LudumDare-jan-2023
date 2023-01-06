@@ -32,7 +32,7 @@ public abstract class CharacterControlerBase : MonoBehaviour
             ray = new Ray(transform.position, -upVector);
 
             // If the ray hits the ground within the ground check distance, the character is grounded
-            if (Physics.Raycast(ray, out hit, controller.height / 2 + groundCheckDistance))
+            if (Physics.Raycast(ray, out hit, Controller.height / 2 + groundCheckDistance))
             {
                 return true;
             }
