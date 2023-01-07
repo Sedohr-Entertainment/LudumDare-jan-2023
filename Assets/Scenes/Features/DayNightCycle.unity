@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15768734, g: 0.17459226, b: 0.1801484, a: 1}
+  m_IndirectSpecularColor: {r: 0.3921924, g: 0.17288314, b: 0.17047273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -151,8 +151,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 839961662}
   - {fileID: 786381292}
+  - {fileID: 839961662}
   m_Father: {fileID: 1006694107}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 21042176}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &786381293
 MonoBehaviour:
@@ -207,6 +207,12 @@ MonoBehaviour:
   duration: 10
   dailyRotationFrom: 0
   dailyRotationTo: 0.5
+  OnDayPartStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDayPartEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &786381294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +686,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 21042176}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &839961663
 MonoBehaviour:
@@ -1021,8 +1027,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Day
   duration: 5
-  dailyRotationFrom: 0
-  dailyRotationTo: 0.5
+  dailyRotationFrom: 0.5
+  dailyRotationTo: 1
+  OnDayPartStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDayPartEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &973886248
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,6 +56,8 @@ namespace Ru1t3rl.DayNightCycle
             dayParts.Add(dayPart);
 
             dayLength += dayPart.Duration;
+
+            OrderDayParts();
         }
 
         public void RemoveDayPart(DayPart dayPart)
@@ -92,6 +94,11 @@ namespace Ru1t3rl.DayNightCycle
             );
 
             prevCurrentDayPart = currentDayPart;
+        }
+
+        private void OrderDayParts()
+        {
+            dayParts.Sort((x, y) => x.transform.GetSiblingIndex().CompareTo(y.transform.GetSiblingIndex()));
         }
     }
 }

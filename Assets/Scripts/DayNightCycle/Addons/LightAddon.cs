@@ -12,7 +12,7 @@ namespace Ru1t3rl.DayNightCycle.Addons
 
         public override void UpdateAddon(float time)
         {
-            light.enabled = true;
+            light.gameObject.SetActive(true);
 
             light.color = color.Evaluate(time);
             light.intensity = intensity.Evaluate(time);
@@ -21,7 +21,7 @@ namespace Ru1t3rl.DayNightCycle.Addons
         public override void Deactivate()
         {
             base.Deactivate();
-            light.enabled = false;
+            light.gameObject.SetActive(false);
         }
     }
 }
