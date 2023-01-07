@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Ru1t3rl.DayNightCycle.Addons;
 
 namespace Ru1t3rl.DayNightCycle
@@ -21,6 +22,10 @@ namespace Ru1t3rl.DayNightCycle
         public float DailyRotationFrom => dailyRotationFrom;
         public float DailyRotationTo => dailyRotationTo;
 
+        private bool first = true;
+        public UnityEvent OnDayPartStart = new UnityEvent();
+        public UnityEvent OnDayPartEnd = new UnityEvent();
+
 
         private void OnEnable()
         {
@@ -34,6 +39,12 @@ namespace Ru1t3rl.DayNightCycle
 
         public void UpdateDayPart(float time)
         {
+            if (first)
+            {
+                OnDayPartStart?.Invoke();
+                first = false;
+            }
+
             UpdateAddons(time);
         }
 
@@ -61,6 +72,9 @@ namespace Ru1t3rl.DayNightCycle
             {
                 addons[iAddon].Deactivate();
             }
+
+            OnDayPartEnd?.Invoke();
+            first = true;
         }
     }
 }
