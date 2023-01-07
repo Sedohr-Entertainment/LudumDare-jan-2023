@@ -58,7 +58,7 @@ public class CharacterControlerPhysics : CharacterControlerBase
         }
     }
 
-    protected override void ApplyRotation()
+    protected override void ApplyRotation(Vector3 direction)
     {
         // Rotate the character to face the direction of movement
         transform.rotation = Quaternion.LookRotation(velocity.normalized);

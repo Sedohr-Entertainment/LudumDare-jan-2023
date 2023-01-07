@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterControlerBase controller;
     private Vector2 input = Vector2.zero;
+    private Vector3 direction = Vector3.zero;
 
     private void Awake()
     {
@@ -23,7 +24,10 @@ public class PlayerController : MonoBehaviour
     public void OnMove(System.EventArgs args)
     {
         input = (Vector2)(args as Vector2InputArgs);
-        controller.ApplyMovement(input);
+        direction.x = input.x;
+        direction.y = 0;
+        direction.z = input.y;
+        controller.ApplyMovement(direction);
     }
 
     public void OnJump()

@@ -14,7 +14,7 @@ public abstract class CharacterControlerBase : MonoBehaviour
 
     protected abstract void Update();
     protected abstract void ApplyGravity();
-    protected abstract void ApplyRotation();
+    protected abstract void ApplyRotation(Vector3 direction);
     public abstract void ApplyMovement(Vector3 direction);
     public abstract void Jump();
 

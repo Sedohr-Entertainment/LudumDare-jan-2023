@@ -33,7 +33,7 @@ public class CharacterControllerSimple : CharacterControlerBase
 
         if (Physics.Raycast(transform.position, -upVector, out RaycastHit hit, gravity * Time.deltaTime))
         {
-            Controller.Move(hit.point - transform.position);
+            Controller.Move(transform.position - hit.point);
             ySpeed = 0;
             return;
         }
@@ -51,21 +51,38 @@ public class CharacterControllerSimple : CharacterControlerBase
     }
 
 
-    protected override void ApplyRotation()
+    protected override void ApplyRotation(Vector3 direction)
     {
-        targetAngle = Mathf.Atan2(Controller.velocity.normalized.x, Controller.velocity.normalized.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+        direction.Normalize();
+        targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
         angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothDamp, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
     public override void ApplyMovement(Vector3 direction)
     {
-        ApplyRotation();
+        Vector3 tempDirection = Vector3.zero;
+        ApplyRotation(direction);
+
+        if (direction.x != 0)
+        {
+            tempDirection += transform.forward;
+        }
+
+        if (direction.z != 0)
+        {
+            tempDirection += transform.right;
+        }
+
+        direction = Quaternion.Euler(0f, transform.eulerAngles.y, 0f) * -Vector3.forward;
         Controller.Move(direction * speed * Time.deltaTime);
     }
 
     public override void Jump()
     {
+        if (!IsGrounded)
+            return;
+
         ySpeed = jumpForce;
         Controller.Move(transform.up * ySpeed * Time.deltaTime);
     }

@@ -48,14 +48,14 @@ public class InputManager : MonoBehaviour
             return;
 
         if (keymap.backward.IsPressed())
-            verticalValue -= 1;
-        if (keymap.forward.IsPressed())
             verticalValue += 1;
+        if (keymap.forward.IsPressed())
+            verticalValue -= 1;
 
         if (keymap.left.IsPressed())
-            horizontalValue -= 1;
-        if (keymap.right.IsPressed())
             horizontalValue += 1;
+        if (keymap.right.IsPressed())
+            horizontalValue -= 1;
 
         moveValue.x = horizontalValue;
         moveValue.y = verticalValue;
@@ -80,5 +80,8 @@ public class InputManager : MonoBehaviour
             EventManager.Instance.Invoke("move", new Vector2InputArgs(moveValue));
         }
         #endregion
+
+        horizontalValue = 0;
+        verticalValue = 0;
     }
 }
