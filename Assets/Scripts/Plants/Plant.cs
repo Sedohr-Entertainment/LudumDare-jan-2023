@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+
+    float growthDuration = 8.0f;
+
     // Start is called before the first frame update
     void Start()
     {
