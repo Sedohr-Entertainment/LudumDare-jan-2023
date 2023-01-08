@@ -5,24 +5,10 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour
 {
-    public static event Action<CropType> onSeedGrown; 
-
-    float decayTime = 10.0f;
-    private CropType _cropType;
-    public enum CropType { 
-        GRAIN,
-        WHEAT
-    }
-
-    //Return random crop value from enum values.
-    CropType RandomCroptType() {
-        Type randomCrop = typeof(CropType);
-        Array values = randomCrop.GetEnumValues();
-        int index = UnityEngine.Random.Range(0, values.Length);
-        CropType cropValue = (CropType)values.GetValue(index);
-        Debug.Log("Current crop" + cropValue);
-        return cropValue;
-    }
+    [SerializeField] private GameObject _plantPrefab;
+    // Whether the plant has been planted
+    private bool _isPlanted = false;
+    private float _decayTime = 10.0f;   
 
     private void Update()
     {
@@ -30,13 +16,13 @@ public class Seed : MonoBehaviour
     }
 
     void Decay() { 
-        decayTime -= Time.deltaTime;
-        if (decayTime < 0) { RemoveSeed(); }
+        _decayTime -= Time.deltaTime;
+        if (!_isPlanted && _decayTime < 0) { RemoveSeed(); }
     }
 
-    //When the seed has been planted, invoke event and pass in croptype and then destroy the seed gameobject.
-    void PlantSeed() {        
-        onSeedGrown?.Invoke(RandomCroptType());
+    public void PlantSeed(GameObject plantHolder) {                
+        _isPlanted = true;
+        GameObject plant = GameObject.Instantiate(_plantPrefab, plantHolder.transform.position, Quaternion.identity);
         RemoveSeed();
     }
 
