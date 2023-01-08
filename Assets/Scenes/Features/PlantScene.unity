@@ -199,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 1307214108274434771, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.657166
+      value: 0.65716594
       objectReference: {fileID: 0}
     - target: {fileID: 1307214108274434771, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
@@ -209,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 1307214108274434771, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7398033
+      value: -0.7398034
       objectReference: {fileID: 0}
     - target: {fileID: 1307214108274434771, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
@@ -254,12 +254,12 @@ PrefabInstance:
     - target: {fileID: 1307214109255552768, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66021353
+      value: 0.6602135
       objectReference: {fileID: 0}
     - target: {fileID: 1307214109255552768, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07190056
+      value: 0.07190057
       objectReference: {fileID: 0}
     - target: {fileID: 1307214109255552768, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 1307214109255552768, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.08094192
+      value: 0.080941945
       objectReference: {fileID: 0}
     - target: {fileID: 1307214109437098275, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 9212537974566087127, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9212537974566087127, guid: cc819f648cf7b744b8ad669135ebf417,
         type: 3}
@@ -504,7 +504,7 @@ Transform:
   m_Children:
   - {fileID: 97834352}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519355941
 MonoBehaviour:
