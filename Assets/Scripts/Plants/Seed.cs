@@ -26,6 +26,6 @@ public class Seed : MonoBehaviour
     }
 
     private void RemoveSeed() {
-        Destroy(gameObject);       
+        Destroy(gameObject, 2f);       
     }
 }
