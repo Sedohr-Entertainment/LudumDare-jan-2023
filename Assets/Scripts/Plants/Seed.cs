@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour
 {
-    [SerializeField] private GameObject _plantPrefab;
     // Whether the plant has been planted
     private bool _isPlanted = false;
-    private float _decayTime = 10.0f;   
+    private float _decayTime = 10.0f;
 
     private void Update()
     {
@@ -20,9 +19,9 @@ public class Seed : MonoBehaviour
         if (!_isPlanted && _decayTime < 0) { RemoveSeed(); }
     }
 
-    public void PlantSeed(GameObject plantHolder) {                
+    public void PlantSeed(GameObject plantPrefab, GameObject plantHolder) {                
         _isPlanted = true;
-        GameObject plant = GameObject.Instantiate(_plantPrefab, plantHolder.transform.position, Quaternion.identity);
+        GameObject plant = GameObject.Instantiate(plantPrefab, plantHolder.transform.position, Quaternion.identity);
         RemoveSeed();
     }
 
